@@ -1,5 +1,5 @@
 blueprint:
-  name: Frigate Notifications JN Fix (0.14.0.2w)
+  name: Frigate Notifications JN Fix (0.14.0.2w.1)
   author: SgtBatten
   homeassistant:
     min_version: 2024.11.0
@@ -1445,6 +1445,8 @@ actions:
           ########################################################
           #################### LOOP for updates ##################
           ########################################################
+          - condition: template
+            value_template: "{{ not alert_once }}"
           - repeat:
               sequence:
                 - wait_for_trigger:
@@ -1453,7 +1455,7 @@ actions:
                       payload: "{{ review_id }}"
                       value_template: "{{ value_json['after']['id'] }}"
                   timeout:
-                    minutes: "{{ 0 if alert_once else timeout }}"
+                    minutes: "{{timeout}}"
                   continue_on_timeout: false
                 - variables:
                     # use the subsequent attchment variable if set
