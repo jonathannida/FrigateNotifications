@@ -1623,9 +1623,6 @@ actions:
                 - choose:
                     - conditions:
                         - and:
-                            - alias: Alert Once Check
-                              condition: template
-                              value_template: "{{ not alert_once }}"
                             - alias: Severity Filter
                               condition: template
                               value_template: "{{severity_satisfied}}"
@@ -1919,4 +1916,7 @@ actions:
                                         {{ newIds[:250] }}
                                     target:
                                       entity_id: "{{tts_helper}}"
+                            - if: "{{ alert_once }}"
+                               then:
+                                 - stop: "Alert Once enabled - Notification sent, stopping updates."
               until: "{{ not wait.trigger or wait.trigger.payload_json['type'] == 'end' }}"
