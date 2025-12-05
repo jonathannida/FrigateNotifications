@@ -1917,6 +1917,6 @@ actions:
                                     target:
                                       entity_id: "{{tts_helper}}"
                             - if: "{{ alert_once }}"
-                               then:
-                                 - stop: "Alert Once enabled - Notification sent, stopping updates."
+                              then:
+                                - stop: "Alert Once enabled - Notification sent, stopping updates."
               until: "{{ not wait.trigger or wait.trigger.payload_json['type'] == 'end' }}"
