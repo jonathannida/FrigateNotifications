@@ -1445,8 +1445,6 @@ actions:
           ########################################################
           #################### LOOP for updates ##################
           ########################################################
-          - condition: template
-            value_template: "{{ not alert_once }}"
           - repeat:
               sequence:
                 - wait_for_trigger:
@@ -1625,6 +1623,9 @@ actions:
                 - choose:
                     - conditions:
                         - and:
+                            - alias: Alert Once Check
+                              condition: template
+                              value_template: "{{ not alert_once }}"
                             - alias: Severity Filter
                               condition: template
                               value_template: "{{severity_satisfied}}"
