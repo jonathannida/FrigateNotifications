@@ -1,5 +1,5 @@
 blueprint:
-  name: Frigate Notifications JN Fix (0.14.0.2w.1)
+  name: Frigate Notifications JN Fix (0.14.0.2w.2)
   author: SgtBatten
   homeassistant:
     min_version: 2024.11.0
