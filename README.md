@@ -1,0 +1,2 @@
+This is just a testing area for working out a bug in the ios notifications from the original SgtBatten blueprint. I was always receiving a second notification with the "Snapshot with Bounding Box" even though it was not specified and the "Alert Once" option was enabled. The alert would typically be received 45-50 seconds after the original alert.
+My attempt to resolve this likely breaks the functionality or intent of the "Alert Once" functionality, but it is working for my purposes.
